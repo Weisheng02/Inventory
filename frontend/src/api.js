@@ -1,4 +1,7 @@
-const BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000';
+const envBase = import.meta.env.VITE_BACKEND_URL;
+const BASE_URL = envBase && envBase.trim().length > 0
+  ? envBase
+  : (typeof window !== 'undefined' ? `${window.location.origin}/api` : 'http://localhost:4000');
 
 export async function fetchItems() {
   const res = await fetch(`${BASE_URL}/items`);
