@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+
+body { @apply bg-gradient-to-br from-mint-100 via-sky-100 to-rose-100 text-gray-900 min-h-screen; }
+
+.glass { @apply bg-white/45 backdrop-blur-md shadow-glass border border-white/40; }
+.liquid { background: radial-gradient(1200px 800px at -10% 0%, rgba(159,112,255,0.25), transparent 50%), radial-gradient(600px 600px at 110% 10%, rgba(124,212,255,0.25), transparent 55%), radial-gradient(800px 800px at 50% 120%, rgba(110,231,198,0.25), transparent 60%); }
+
+.card { @apply glass rounded-2xl p-0 overflow-hidden transition-transform duration-200 ease-out; }
+.card:hover { @apply scale-[1.01] shadow-xl; }
+.card-header { @apply p-2.5 sm:p-3 text-white font-medium bg-gradient-to-r from-brand-500 to-sky-500; }
+.card-body { @apply p-3 sm:p-4; }
+
+/* Compact variant for tighter list density */
+.compact-card .card-header { @apply p-2; }
+.compact-card .card-body { @apply p-2; }
+
+/* Use DaisyUI classes directly in JSX to avoid circular @apply. */
+
+/* Use DaisyUI utility classes directly in JSX for inputs/selects/textarea to avoid circular @apply. */
+.label { @apply text-sm font-semibold text-gray-700 mb-1; }
+
+.toast { @apply fixed bottom-20 left-1/2 -translate-x-1/2 glass text-gray-800 px-4 py-2 rounded-xl z-50; }
+
+.header-glass { @apply glass; }
+.bar-glass { @apply glass; }
+
+.fab { @apply btn btn-accent rounded-full shadow-lg fixed bottom-20 right-4 w-14 h-14 flex items-center justify-center text-white text-3xl; }
+.fab:active { transform: scale(0.97); }
+.fab::after { content: ""; position: absolute; inset: 0; border-radius: 9999px; background: radial-gradient(circle, rgba(255,255,255,0.35) 10%, transparent 10%) center/10px 10px; opacity: 0; transition: transform 350ms ease, opacity 350ms ease; transform: scale(0.2); }
+.fab:active::after { opacity: 1; transform: scale(1.8); }
+
+.fade-in { @apply animate-fadeIn; }
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+.animate-fadeIn { animation: fadeIn 250ms ease-out; }
+
+/* Hide horizontal scrollbar for chip row */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+

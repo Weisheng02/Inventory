@@ -1,0 +1,23 @@
+# Node
+node_modules
+*.log
+
+# Build outputs
+dist
+build
+frontend/dist
+
+# Env files
+.env
+.env.local
+backend/.env
+frontend/.env
+
+# Platform
+.vercel
+.netlify
+backend/.vercel
+backend/.netlify
+
+# macOS
+.DS_Store

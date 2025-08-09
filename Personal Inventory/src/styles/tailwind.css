@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile-first sensible defaults */
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-white text-gray-900; }
+}
+
+
