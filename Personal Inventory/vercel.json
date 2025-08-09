@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "buildCommand": "vite build",
-  "devCommand": "vite",
-  "installCommand": "npm install --no-audit --no-fund",
-  "outputDirectory": "dist",
   "builds": [
-    { "src": "server/api/**/*.js", "use": "@vercel/node" }
+    { "src": "frontend/package.json", "use": "@vercel/static-build" },
+    { "src": "backend/server/api/**/*.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "server/api/$1" },
-    { "src": "/(.*)", "dest": "/" }
-  ]
+    { "src": "/api/(.*)", "dest": "backend/server/api/$1" },
+    { "src": "/(.*)", "dest": "frontend/dist/index.html" }
+  ],
+  "installCommand": "npm install --prefix frontend",
+  "buildCommand": "npm run build --prefix frontend",
+  "outputDirectory": "frontend/dist"
 }
